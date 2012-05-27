@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: MyString
+  number: MyString
+  brand_id: 1
+  network_generation: MyString
+  os_type_id: 1
+  screen_size_inches: 1.5
+  screen_size_x_pixels: 1
+  screen_size_y_pixels: 1
+  primary_camera_mp: 1.5
+  secondary_camera_mp: 1.5
+
+two:
+  id: 1
+  name: MyString
+  number: MyString
+  brand_id: 1
+  network_generation: MyString
+  os_type_id: 1
+  screen_size_inches: 1.5
+  screen_size_x_pixels: 1
+  screen_size_y_pixels: 1
+  primary_camera_mp: 1.5
+  secondary_camera_mp: 1.5

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  model_id: 1
+  os_ver_id: 1
+  active: false
+  IMEI: MyString
+  MEID: MyString
+  condition: MyString
+
+two:
+  id: 1
+  model_id: 1
+  os_ver_id: 1
+  active: false
+  IMEI: MyString
+  MEID: MyString
+  condition: MyString
