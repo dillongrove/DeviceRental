@@ -75,10 +75,12 @@ ActiveRecord::Schema.define(:version => 20120527232447) do
   create_table "rentals", :force => true do |t|
     t.integer  "device_id"
     t.integer  "user_id"
-    t.datetime "start_date"
+    t.datetime "requested_date"
+    t.datetime "approve_date"
+    t.datetime "loan_date"
     t.datetime "end_date"
-    t.datetime "date_requested"
-    t.string   "stage"
+    t.datetime "return_date"
+    t.boolean  "approved"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
