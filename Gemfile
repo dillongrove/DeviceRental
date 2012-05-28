@@ -4,6 +4,7 @@ gem 'rails', '3.2.3'
 gem 'json'
 gem 'jquery-rails'
 gem 'thin'
+gem 'valid_email'
 
 group :production do
   gem 'mysql'
