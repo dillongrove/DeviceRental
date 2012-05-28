@@ -5,6 +5,7 @@ gem 'json'
 gem 'jquery-rails'
 gem 'thin'
 gem 'valid_email'
+gem 'validates_timeliness'
 
 group :production do
   gem 'mysql'
@@ -12,6 +13,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'hirb'
 end
 
 group :assets do

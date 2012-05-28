@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120527232447) do
+ActiveRecord::Schema.define(:version => 20120528075841) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -80,17 +80,16 @@ ActiveRecord::Schema.define(:version => 20120527232447) do
     t.datetime "loan_date"
     t.datetime "end_date"
     t.datetime "return_date"
-    t.boolean  "approved"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "andrew"
-    t.string   "role"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "role",       :default => "regular"
   end
 
 end
