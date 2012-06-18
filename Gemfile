@@ -19,6 +19,8 @@ end
 group :test do
   gem 'shoulda'
   gem 'simplecov'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 group :assets do

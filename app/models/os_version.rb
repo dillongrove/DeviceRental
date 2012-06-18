@@ -20,7 +20,7 @@ class OsVersion < ActiveRecord::Base
   
   # checks that the associated os_type exists
   def os_must_exist
-    return if self.os_type.nil?
+    return if self.os_type_id.nil?
     errors.add(:os_type_id, "must be an existing OS.") if OsType.find(self.os_type_id).nil?
   end
   

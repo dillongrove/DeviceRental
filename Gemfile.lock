@@ -49,6 +49,11 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (2.6.3)
+      activesupport (>= 2.3.9)
+    factory_girl_rails (1.7.0)
+      factory_girl (~> 2.6.0)
+      railties (>= 3.0.0)
     highline (1.6.12)
     hike (1.2.1)
     hirb (0.6.2)
@@ -156,6 +161,8 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
+  factory_girl
+  factory_girl_rails
   hirb
   jquery-rails
   json
