@@ -14,7 +14,7 @@ class Model < ActiveRecord::Base
   NETWORK_GENERATIONS = [:'3G', :'4G'] 
   
   # Validations ----------------------------------------------------------------
-  validates_presence_of :brand_id, :name, :network_generation, :number, :os_type_id, :screen_size_x_pixels
+  validates_presence_of :brand_id, :name, :network_generation, :number, :os_type_id, :screen_size_x_pixels, :screen_size_y_pixels
   # if primary/secondary camera details missing, that means no primary/secondary camera
   # IDEA: maybe we don't even need these details - just google on demand!!!!!
   

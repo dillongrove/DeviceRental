@@ -6,10 +6,6 @@ class ModelFeature < ActiveRecord::Base
   belongs_to :feature
   belongs_to :model
   
-  # Scopes ---------------------------------------------------------------------
-  scope :for_model, lambda { |model_id| where('model_id = ?', model_id) }
-  scope :for_feature, lambda { |feature_id| where('feature_id = ?', feature_id) }
-  
   # Validations ----------------------------------------------------------------
   validates_presence_of :feature_id
   validates_presence_of :model_id

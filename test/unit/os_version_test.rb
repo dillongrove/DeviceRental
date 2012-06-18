@@ -10,7 +10,7 @@ class OsVersionTest < ActiveSupport::TestCase
   should validate_presence_of :number
   should validate_presence_of :name
   
-  context "Creating one Android OS", do
+  context "Creating one Android OS" do
     
     setup do
       @android = FactoryGirl.create(:os_type)
