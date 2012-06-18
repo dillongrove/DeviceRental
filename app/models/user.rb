@@ -2,9 +2,9 @@
 # destroyed if a user is deleted. On creation, a user must have an andrew ID,
 # a role, and an email address.
 #
-# WARNING: depending on how the user is created, a hacker might hide role information
-# in his post request to force his user to be an administrator. Need to check for
-# that in the controller.
+# WARNING: depending on how the user is created, a hacker might hide role
+# information in his post request to force his user to be an administrator. Need
+# to check for that in the controller.
 class User < ActiveRecord::Base
 
   attr_accessible :id, :andrew, :email, :role
