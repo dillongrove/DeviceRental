@@ -7,8 +7,8 @@ class ModelFeature < ActiveRecord::Base
   belongs_to :model
   
   # Scopes ---------------------------------------------------------------------
-  scope :for_model { |model_id| where('model_id = ?', model_id) }
-  scope :for_feature { |feature_id| where('feature_id = ?', feature_id) }
+  scope :for_model, lambda { |model_id| where('model_id = ?', model_id) }
+  scope :for_feature, lambda { |feature_id| where('feature_id = ?', feature_id) }
   
   # Validations ----------------------------------------------------------------
   validates_presence_of :feature_id
