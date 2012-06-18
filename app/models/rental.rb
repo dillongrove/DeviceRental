@@ -52,7 +52,7 @@ class Rental < ActiveRecord::Base
   # Validations ----------------------------------------------------------------
   
   # there must always be at least a user ID, device ID, and intended start/end dates
-  validates_presence_of :user_id, :device_id, :requested_date, :end_date
+  validates_presence_of :user_id, :device_id
   validate :user_must_exist
   validate :device_must_exist
   
@@ -68,19 +68,19 @@ class Rental < ActiveRecord::Base
   
   # approve_date is optional, must be after created date  
   validates_date :approve_date,
-    :allow_blank => true,
+    :allow_nil => true,
     :on_or_after => :created_at,
     :on_or_after_message => 'must be on or after the date this request was made' 
     
   # loan_date is optional, must be after approve_date
   validates_date :loan_date,
-    :allow_blank => true,
+    :allow_nil => true,
     :on_or_after => :approve_date,
     :on_or_after_message => 'must be on or after the approval date'
     
   # return_date is optional, must be after loan date
   validates_date :return_date,
-    :allow_blank => true,
+    :allow_nil => true,
     :on_or_after => :loan_date,
     :on_or_after_message => 'must be on or after the loan date'
   
@@ -109,11 +109,13 @@ class Rental < ActiveRecord::Base
   
   # checks that the associated user exists
   def user_must_exist
-   errors.add(:user_id, "must be a registered user") if User.find(self.user_id).nil?
+    return if self.user_id.nil?
+    errors.add(:user_id, "must be a registered user") if User.find(self.user_id).nil?
   end
   
   # checks that the associated device exists
   def device_must_exist
+    return if self.device_id.nil?
     errors.add(:device_id, "must be an existing device") if Device.find(self.device_id).nil?
   end
   

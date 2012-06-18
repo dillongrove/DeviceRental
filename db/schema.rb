@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528075841) do
+ActiveRecord::Schema.define(:version => 20120618040412) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(:version => 20120528075841) do
   create_table "devices", :force => true do |t|
     t.integer  "model_id"
     t.integer  "os_ver_id"
-    t.boolean  "active"
     t.string   "IMEI"
     t.string   "MEID"
     t.string   "condition"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "active",     :default => true
   end
 
   create_table "features", :force => true do |t|

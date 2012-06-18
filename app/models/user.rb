@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   scope :alphabetical, order(:andrew)
   
   # Validations ----------------------------------------------------------------
-
   validates_presence_of :andrew, :role, :email
   validates_uniqueness_of :andrew, :email, :message => "has already been registered"
   validates_inclusion_of :role, :in => ROLES.map { |a,b| b }
