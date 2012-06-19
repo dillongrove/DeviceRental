@@ -10,15 +10,15 @@ class Device < ActiveRecord::Base
   
   # Scopes ---------------------------------------------------------------------
   scope :active, where('active = ?', true)
-  scope :for_os_version, lambda { |os_version_id| where('os_version_id = ?', os_version_id) }
-  scope :for_model, lambda { |model_id| where('model_id = ?', model_id) }
   
   # Validations ----------------------------------------------------------------
-  validates_presence_of :model_id, :os_version_id, :IMEI, :MEID
+  validates_presence_of :model_id, :os_version_id
   # active is not required -> defaults to true in the DB
+  # MEID is optional -> only some devices, such as CDMA devices, have it
   
   validate :model_must_exist
   validate :os_version_must_exist
+  validate :presence_of_IMEI_or_MEID
   
   # TODO: format for IMEI, MEID
   
@@ -32,6 +32,11 @@ class Device < ActiveRecord::Base
   def os_version_must_exist
     return if self.os_version_id.nil?
     errors.add(:os_version_id, "must be an existing OS version") if OsVersion.find(self.os_version_id).nil?
+  end
+  
+  def presence_of_IMEI_or_MEID
+    return if not (self.IMEI.nil? and self.MEID.nil?)
+    errors.add(:IMEI, "Either IMEI or MEID must be present.")
   end
   
 end

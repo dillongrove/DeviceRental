@@ -21,6 +21,8 @@ group :test do
   gem 'simplecov'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'spork-rails'
+  gem 'spork-testunit'
 end
 
 group :assets do

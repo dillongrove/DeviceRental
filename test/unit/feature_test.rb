@@ -10,4 +10,22 @@ class FeatureTest < ActiveSupport::TestCase
   should_not allow_value("").for(:name)
   should_not allow_value(nil).for(:name)
   
+  context "Creating 3 features" do
+  
+    setup do
+      @c = FactoryGirl.create(:feature, :name => 'c')
+      @b = FactoryGirl.create(:feature, :name => 'b')
+      @a = FactoryGirl.create(:feature, :name => 'a')
+    end
+    
+    should "return list of features in alphabetical order" do
+      assert_equal [@a, @b, @c].map(&:id), Feature.alphabetical.map(&:id)
+    end
+    
+    teardown do
+      [@a, @b, @c].map(&:destroy)
+    end
+  
+  end
+  
 end

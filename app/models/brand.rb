@@ -9,6 +9,7 @@ class Brand < ActiveRecord::Base
   has_many :devices, :through => :models
   
   # Scopes ---------------------------------------------------------------------
+  scope :alphabetical, order(:name)
   
   # Validations ----------------------------------------------------------------
   validates_presence_of :name

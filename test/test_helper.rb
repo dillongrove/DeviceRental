@@ -7,8 +7,8 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
 
-  def deny(condition)
-    assert !condition
+  def deny(condition, message="")
+    assert (!condition), message
   end
-  
+
 end

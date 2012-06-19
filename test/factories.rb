@@ -33,4 +33,12 @@ FactoryGirl.define do
     association   :feature
   end
   
+  factory :device do
+    association   :model
+    association   :os_version
+    active        true
+    IMEI          "49-015420-323751"
+    condition     "good"
+  end
+  
 end
