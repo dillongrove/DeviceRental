@@ -38,6 +38,7 @@ FactoryGirl.define do
     association   :os_version
     active        true
     IMEI          "49-015420-323751"
+    MEID          "49-015420-323741"
     condition     "good"
   end
   

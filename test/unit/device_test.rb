@@ -61,15 +61,19 @@ class DeviceTest < ActiveSupport::TestCase
   context "Creating 2 active and 1 inactive devices" do
   
     setup do
-      @d1 = FactoryGirl.create(:device)
-      @d2 = FactoryGirl.create(:device)
-      @d3 = FactoryGirl.create(:device, :active => false)
+      @d1 = FactoryGirl.create(:device, :IMEI => "49-015420-323752", :MEID => "49-015420-323752")
+      @d2 = FactoryGirl.create(:device, :IMEI => "49-015420-323753", :MEID => nil)
+      @d3 = FactoryGirl.create(:device, :IMEI => nil, :MEID => "49-015420-323751",
+                                                                  :active => false)
     end
     
     should "return a list of active devices" do
       assert_equal 3, Device.all.length
       assert_equal 2, Device.active.length
     end
+    
+    should validate_uniqueness_of :MEID
+    should validate_uniqueness_of :IMEI
     
     teardown do
       [@d1, @d2, @d3].map(&:destroy)

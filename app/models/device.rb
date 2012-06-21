@@ -14,11 +14,12 @@ class Device < ActiveRecord::Base
   # Validations ----------------------------------------------------------------
   validates_presence_of :model_id, :os_version_id
   # active is not required -> defaults to true in the DB
-  # MEID is optional -> only some devices, such as CDMA devices, have it
   
   validate :model_must_exist
   validate :os_version_must_exist
   validate :presence_of_IMEI_or_MEID
+  validates_uniqueness_of :IMEI, :allow_blank => true
+  validates_uniqueness_of :MEID, :allow_blank => true
   
   # TODO: format for IMEI, MEID
   
