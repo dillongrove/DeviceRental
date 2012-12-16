@@ -46,6 +46,17 @@ RentalApp::Application.routes.draw do
   #     resources :products
   #   end
 
+  # Generated model routes
+  resources :brands
+  resources :devices
+  resources :features
+  resources :models  
+  resources :model_features
+  resources :os_types
+  resources :os_versions
+  resources :rentals
+  resources :users
+
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
