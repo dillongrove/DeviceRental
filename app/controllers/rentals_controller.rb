@@ -1,22 +1,6 @@
 class RentalsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    @rentals = Rental.all
-  end
-
-  def show
-    @rental = Rental.find(params[:id])
-  end
-
-  def new
-    @rental = Rental.new
-  end
-
-  def edit
-    @rental = Rental.find(params[:id])
-  end
-
   def create
     @rental = Rental.new(params[:rental])
     if @rental.save

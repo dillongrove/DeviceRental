@@ -1,21 +1,5 @@
 class DevicesController < ApplicationController
   load_and_authorize_resource
-  
-	def index
-    @devices = Device.all
-  end
-
-  def show
-  	@device = Device.find(params[:id])
-  end
-
-  def new
-    @device = Device.new
-  end
-
-  def edit
-    @device = Device.find(params[:id])
-  end
 
   def create
     @device = Device.new(params[:device])

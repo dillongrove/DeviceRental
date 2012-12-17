@@ -1,22 +1,6 @@
 class OsVersionsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    @os_versions = OsVersion.all
-  end
-
-  def show
-    @os_version = OsVersion.find(params[:id])
-  end
-
-  def new
-    @os_version = OsVersion.new
-  end
-
-  def edit
-    @os_version = OsVersion.find(params[:id])
-  end
-
   def create
     @os_version = OsVersion.new(params[:os_version])
     if @os_version.save

@@ -1,21 +1,5 @@
 class OsTypesController < ApplicationController
   load_and_authorize_resource
-  
-  def index
-    @os_types = OsType.all
-  end
-
-  def show
-    @os_type = OsType.find(params[:id])
-  end
-
-  def new
-    @os_type = OsType.new
-  end
-
-  def edit
-    @os_type = OsType.find(params[:id])
-  end
 
   def create
     @os_type = OsType.new(params[:os_type])

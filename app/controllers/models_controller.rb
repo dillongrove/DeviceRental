@@ -1,21 +1,5 @@
 class ModelsController < ApplicationController
   load_and_authorize_resource
-  
-  def index
-    @models = Model.all
-  end
-
-  def show
-    @model = Model.find(params[:id])
-  end
-
-  def new
-    @model = Model.new
-  end
-
-  def edit
-    @model = Model.find(params[:id])
-  end
 
   def create
     @model = Model.new(params[:model])

@@ -1,22 +1,6 @@
 class BrandsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    @brands = Brand.all
-  end
-
-  def show
-  	@brand = Brand.find(params[:id])
-  end
-
-  def new
-    @brand = Brand.new
-  end
-
-  def edit
-    @brand = Brand.find(params[:id])
-  end
-
   def create
     @brand = Brand.new(params[:brand])
     if @brand.save
