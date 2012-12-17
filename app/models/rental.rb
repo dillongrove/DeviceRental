@@ -12,7 +12,7 @@
 class Rental < ActiveRecord::Base
 
   attr_accessible :id, :user_id, :device_id, :created_at,
-                  :requested_date, :loan_date, :end_date,
+                  :loan_date, :end_date,
                   :return_date, :approve_date
   
   # Relationships --------------------------------------------------------------
@@ -30,7 +30,7 @@ class Rental < ActiveRecord::Base
   scope :by_user, joins(:user).order(:andrew)
   
   # sort by requested_date
-  scope :chronological, order(:requested_date)
+  scope :chronological, order(:loan_date)
   
   # upcoming rentals -> requested_date is coming up within n days, and loan_date is nil
   scope :upcoming_for_n_days, lambda { |n|
@@ -55,11 +55,6 @@ class Rental < ActiveRecord::Base
   validates_presence_of :user_id, :device_id
   validate :user_must_exist
   validate :device_must_exist
-  
-  # requested date must be after created_at
-  validates_date :requested_date,
-    :on_or_after => :created_at,
-    :on_or_after_message => 'must be on or after the date this request was made'
   
   # end date must be after requested date
   validates_date :end_date,
