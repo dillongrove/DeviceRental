@@ -8,7 +8,7 @@ class Ability
     if user.role? :admin
         can :manage, :all
     else
-        can :manage, :all
+        can :read, Model
     end
     
     # The first argument to `can` is the action you are giving the user permission to do.

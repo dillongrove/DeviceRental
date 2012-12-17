@@ -26,9 +26,13 @@
 
         </ul>
         <ul class="nav pull-right">
-          <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Logout", logout_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
+          <% if logged_in? %>
+            <li>Welcome, <%= link_to current_user.email, user_path(current_user) %></li>
+            <li><%= link_to "Logout", logout_path %></li>
+          <% else %>
+            <li><%= link_to "Login", login_path %></li>
+            <li><%= link_to "Sign up", signup_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
