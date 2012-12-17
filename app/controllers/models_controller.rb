@@ -1,6 +1,13 @@
 class ModelsController < ApplicationController
   load_and_authorize_resource
 
+  def show
+    @model = Model.find(params[:id])
+    
+    # get all the devices for this model
+    @devices = @model.devices
+  end
+
   def create
     @model = Model.new(params[:model])
     if @model.save
