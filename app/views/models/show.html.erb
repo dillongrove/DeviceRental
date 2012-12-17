@@ -2,7 +2,7 @@
 <%= image_tag @model.image_url %>
 
 <h1>Devices</h1>
-  <table class="table">
+<table class="table">
   <thead>
     <th>Model</th>
     <th>OS</th>
@@ -17,6 +17,7 @@
       <td>
         <%= link_to("Edit", edit_device_path(device))  %>&nbsp;
         <%= link_to("Delete", device_path(device), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+        <%= link_to 'Create Rental', new_rental_path(:device => device.id), :class => 'btn btn-small btn-primary' %>
       </td>
     </tr>
   <% end %>
