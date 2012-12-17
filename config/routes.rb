@@ -57,7 +57,8 @@ RentalApp::Application.routes.draw do
   resources :rentals
   resources :users
 
-  root :to => 'home#index'
+  # homepage route
+  match '/' => "home#index", :as => :home
 
   # See how all your routes lay out with "rake routes"
   
