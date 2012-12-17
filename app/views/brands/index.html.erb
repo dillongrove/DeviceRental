@@ -1,17 +1,18 @@
 
 <h1>Brands</h1>
-  <table class="datagrid">
-  <thead class="datagrid">
+  <table class="table">
+  <thead>
     <th>Brand</th>
+    <th>Created on:</th>
     <th>&nbsp;</th>
   </thead>
   <% for brand in @brands %>
-    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+    <tr>
       <td><%= link_to brand.name, brand_path(brand) %></td>
-    <td align="center"><%= brand.created_at.strftime("%B %d, %Y") %></td>
-    <td align="center">
-    <%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_brand_path(brand))  %>&nbsp;
-    <%= link_to(image_tag("icons/delete_dg.gif", :border => 0), brand_path(brand), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+    <td><%= brand.created_at.strftime("%B %d, %Y") %></td>
+    <td>
+      <%= link_to("Edit", edit_brand_path(brand))  %>&nbsp;
+      <%= link_to("Delete", brand_path(brand), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
     </td>
     </tr>
   <% end %>
