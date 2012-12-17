@@ -2,18 +2,18 @@
 <h1>OS Versions</h1>
   <table class="table">
   <thead>
-    <th>OS Version</th>
-    <th>Created on:</th>
+    <th>OS Version Name</th>
+    <th>OS Version Number</th>
     <th>&nbsp;</th>
   </thead>
   <% for os_version in @os_versions %>
     <tr>
       <td><%= link_to os_version.name, os_version_path(os_version) %></td>
-    <td><%= os_version.created_at.strftime("%B %d, %Y") %></td>
-    <td>
-      <%= link_to("Edit", edit_os_version_path(os_version))  %>&nbsp;
-      <%= link_to("Delete", os_version_path(os_version), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
-    </td>
+      <td><%= os_version.number %></td>
+      <td>
+        <%= link_to("Edit", edit_os_version_path(os_version))  %>&nbsp;
+        <%= link_to("Delete", os_version_path(os_version), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+      </td>
     </tr>
   <% end %>
 </table>

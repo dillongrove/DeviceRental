@@ -12,7 +12,7 @@ class OsVersion < ActiveRecord::Base
   scope :for_os_type, lambda { |os_type_id| where('os_type_id = ?', os_type_id) }
   
   # Validations ----------------------------------------------------------------
-  validates_presence_of :os_type_id, :number, :name
+  validates_presence_of :os_type_id, :number
   validate :os_must_exist
   
   # Methods
