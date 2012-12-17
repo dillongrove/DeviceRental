@@ -1,0 +1,19 @@
+
+<h1>OS Types</h1>
+  <table class="table">
+  <thead>
+    <th>OS Type</th>
+    <th>Created on:</th>
+    <th>&nbsp;</th>
+  </thead>
+  <% for os_type in @os_types %>
+    <tr>
+      <td><%= link_to os_type.name, os_type_path(os_type) %></td>
+    <td><%= os_type.created_at.strftime("%B %d, %Y") %></td>
+    <td>
+      <%= link_to("Edit", edit_os_type_path(os_type))  %>&nbsp;
+      <%= link_to("Delete", os_type_path(os_type), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+    </td>
+    </tr>
+  <% end %>
+</table>

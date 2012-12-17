@@ -1,0 +1,19 @@
+<%= simple_form_for(@os_type) do |f| %>
+  <% if @os_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@os_type.errors.count, "error") %> prohibited this os_type from being saved:</h2>
+
+      <ul>
+      <% @os_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name %>
+  
+  <div class="actions">
+    <%= f.button :submit, :label => "Create OS Type" %>
+  </div>
+<% end %>
