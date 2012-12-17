@@ -12,10 +12,14 @@
  *= require_tree .
 */
 
+/*========== IMPORTS =========================================================*/
 @import "bootstrap";
 
+/*========== VARIABLES =======================================================*/
 $base_color: #019bc6;
+$footer_height: 60px;
 
+/*========== BASIC STYLES ====================================================*/
 body {
   background-color: #EDEDED;
   -webkit-font-smoothing: antialiased;
@@ -40,3 +44,43 @@ body {
   }
 
 }
+
+/*========== STICKY FOOTER ===================================================*/
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+.footer, .push {
+  height: 4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
