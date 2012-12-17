@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-    <%= f.association :device %>
+    <%= f.association :device, :label_method => lambda { |device| "#{device.model.name} (#{device.IMEI})" } %>
     <%= f.input :requested_date, :as => :date, :start_year => Date.today.year,
                               :end_year => Date.today.year, :order => [:month, :day, :year],
                               :include_blank => true, :default => nil %>
