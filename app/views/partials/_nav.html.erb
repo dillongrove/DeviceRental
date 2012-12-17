@@ -11,7 +11,7 @@
 
           <li><%= link_to "Home", home_path  %></li>
           
-          <% if can? :read, @model %>
+          <% if can? :read, Model %>
             <li><%= link_to "Models", models_path %></li>
           <% end %>
 
