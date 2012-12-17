@@ -6,6 +6,7 @@
 # information in his post request to force his user to be an administrator. Need
 # to check for that in the controller.
 class User < ActiveRecord::Base
+  has_secure_password
 
   attr_accessible :id, :andrew, :email, :role
   
@@ -28,6 +29,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :andrew, :email, :message => "has already been registered"
   validates_inclusion_of :role, :in => ROLES.map { |a,b| b }
   validates :email, :email => true
+  validates_presence_of :password, :on => :create
   
   # no validations for andrew id, since we are probably taking it from Shibboleth
   
