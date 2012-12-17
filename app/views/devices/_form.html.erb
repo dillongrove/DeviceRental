@@ -1,4 +1,4 @@
-<%= form_for(@device) do |f| %>
+<%= simple_form_for(@device) do |f| %>
   <% if @device.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
@@ -11,11 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :IMEI %><br />
-    <%= f.text_field :IMEI %>
-  </div>
+  <%= f.input :IMEI, :label => "IMEI" %>
+  <%= f.association :model %>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit %>
   </div>
 <% end %>

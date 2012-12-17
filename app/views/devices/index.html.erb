@@ -1,4 +1,19 @@
-<div class="hero-unit">
-  <h1>Devices</h1>
-  <p><a class="btn btn-primary btn-large pull-right" href="http://www.cmumobileapps.com/">Don't Click &raquo;</a></p>
-</div>
+
+<h1>Devices</h1>
+  <table class="table">
+  <thead>
+    <th>Device</th>
+    <th>Created on:</th>
+    <th>&nbsp;</th>
+  </thead>
+  <% for device in @devices %>
+    <tr>
+      <td><%= link_to device.IMEI, device_path(device) %></td>
+    <td><%= device.created_at.strftime("%B %d, %Y") %></td>
+    <td>
+      <%= link_to("Edit", edit_device_path(device))  %>&nbsp;
+      <%= link_to("Delete", device_path(device), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+    </td>
+    </tr>
+  <% end %>
+</table>

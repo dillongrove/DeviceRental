@@ -15,6 +15,7 @@
   <%= f.input :number, :label => 'Model No.' %>
   <%= f.association :brand, :include_blank => false %>
   <%= f.input :network_generation, :collection => Model::NETWORK_GENERATIONS %>
+  <%= f.association :os_type, :include_blank => false %>
   <%= f.input :screen_size_inches, :label => 'Screen Size (inches)' %>
   <%= f.input :screen_size_x_pixels, :label => 'Screen Size (horizontal pixels)' %>
   <%= f.input :screen_size_y_pixels, :label => 'Screen Size (vertical pixels)' %>
