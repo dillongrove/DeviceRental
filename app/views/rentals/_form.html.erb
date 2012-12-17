@@ -10,13 +10,23 @@
       </ul>
     </div>
   <% end %>
-  
+
     <%= f.association :device %>
-    <%= f.input :requested_date %>
-    <%= f.input :approve_date %>
-    <%= f.input :loan_date %>
-    <%= f.input :end_date %>
-    <%= f.input :return_date %>
+    <%= f.input :requested_date, :as => :date, :start_year => Date.today.year,
+                              :end_year => Date.today.year, :order => [:month, :day, :year],
+                              :include_blank => true, :default => nil %>
+    <%= f.input :approve_date, :as => :date, :start_year => Date.today.year,
+                              :end_year => Date.today.year, :order => [:month, :day, :year],
+                              :include_blank => true, :default => nil %>
+    <%= f.input :loan_date, :as => :date, :start_year => Date.today.year,
+                              :end_year => Date.today.year, :order => [:month, :day, :year],
+                              :include_blank => true, :default => nil %>
+    <%= f.input :end_date, :as => :date, :start_year => Date.today.year,
+                              :end_year => Date.today.year, :order => [:month, :day, :year],
+                              :include_blank => true, :default => nil %>
+    <%= f.input :return_date, :as => :date, :start_year => Date.today.year,
+                              :end_year => Date.today.year, :order => [:month, :day, :year],
+                              :include_blank => true, :default => nil %>
 
 
   <div class="actions">
