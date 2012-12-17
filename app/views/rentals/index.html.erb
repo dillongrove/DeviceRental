@@ -3,17 +3,19 @@
   <table class="table">
   <thead>
     <th>Rental</th>
-    <th>Number Devices</th>
+    <th>Due Back</th>
+    <th>Device</th>
     <th>&nbsp;</th>
   </thead>
   <% for rental in @rentals %>
     <tr>
-      <td><%= link_to rental.name, rental_path(rental) %></td>
-    <td><%= rental.devices.count %></td>
-    <td>
-      <%= link_to("Edit", edit_rental_path(rental))  %>&nbsp;
-      <%= link_to("Delete", rental_path(rental), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
-    </td>
+      <td><%= link_to rental, rental_path(rental) %></td>
+      <td><%= rental.end_date.strftime("%B %d, %Y") %>
+      <td><%= rental.device.IMEI %></td>
+      <td>
+        <%= link_to("Edit", edit_rental_path(rental))  %>&nbsp;
+        <%= link_to("Delete", rental_path(rental), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+      </td>
     </tr>
   <% end %>
 </table>
