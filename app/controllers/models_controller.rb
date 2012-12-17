@@ -1,5 +1,6 @@
 class ModelsController < ApplicationController
-
+  load_and_authorize_resource
+  
   def index
     @models = Model.all
   end

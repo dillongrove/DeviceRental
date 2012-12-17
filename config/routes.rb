@@ -47,7 +47,6 @@ RentalApp::Application.routes.draw do
   #   end
 
   # Authentication routes
-  match 'user/edit' => 'users#edit', :as => :edit_user
   match 'signup' => 'users#new', :as => :signup
   match 'logout' => 'sessions#destroy', :as => :logout
   match 'login' => 'sessions#new', :as => :login

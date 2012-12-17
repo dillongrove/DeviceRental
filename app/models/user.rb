@@ -34,6 +34,12 @@ class User < ActiveRecord::Base
   # no validations for andrew id, since we are probably taking it from Shibboleth
   
   # Callbacks ------------------------------------------------------------------
+
+  # Other methods --------------------------------------------------------------
+  def role?(authorized_role)
+    return false if role.nil?
+    role.downcase.to_sym == authorized_role
+  end
   
   alias :old_to_s :to_s
   # return andrew ID as string representation of a user

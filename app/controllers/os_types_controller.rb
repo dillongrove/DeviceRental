@@ -1,5 +1,6 @@
 class OsTypesController < ApplicationController
-
+  load_and_authorize_resource
+  
   def index
     @os_types = OsType.all
   end

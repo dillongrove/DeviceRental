@@ -1,6 +1,7 @@
 class BrandsController < ApplicationController
+  load_and_authorize_resource
 
-def index
+  def index
     @brands = Brand.all
   end
 

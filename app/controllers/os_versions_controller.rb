@@ -1,4 +1,5 @@
 class OsVersionsController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @os_versions = OsVersion.all

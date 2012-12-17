@@ -14,8 +14,8 @@
           <% if can? :read, @model %>
             <li><%= link_to "Models", models_path %></li>
           <% end %>
-          
-          <% if cannot? :manage, :all %>
+
+          <% if can? :manage, :all %>
             <li><%= link_to "Brands", brands_path  %></li>
             <li><%= link_to "OS Types", os_types_path %></li>
             <li><%= link_to "OS Versions", os_versions_path %></li>
@@ -27,6 +27,7 @@
         </ul>
         <ul class="nav pull-right">
           <li><%= link_to "Login", login_path %></li>
+          <li><%= link_to "Logout", logout_path %></li>
           <li><%= link_to "Sign up", signup_path %></li>
         </ul>
       </div>
