@@ -1,29 +1,24 @@
-<%= simple_form_for @model, :html => {:multipart => true} do |f| %>
-  <% if @model.errors.any? %>
+<%= simple_form_for @rental, :html => {:multipart => true} do |f| %>
+  <% if @rental.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@model.errors.count, "error") %> prohibited this model from being saved:</h2>
+      <h2><%= pluralize(@rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
 
       <ul>
-      <% @model.errors.full_messages.each do |msg| %>
+      <% @rental.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <%= f.input :name %>
-  <%= f.input :number, :label => 'Model No.' %>
-  <%= f.file_field :image, :label => 'Image' %>
-  <%= f.association :brand, :include_blank => false %>
-  <%= f.input :network_generation, :collection => Model::NETWORK_GENERATIONS %>
-  <%= f.association :os_type, :include_blank => false %>
-  <%= f.input :screen_size_inches, :label => 'Screen Size (inches)' %>
-  <%= f.input :screen_size_x_pixels, :label => 'Screen Size (horizontal pixels)' %>
-  <%= f.input :screen_size_y_pixels, :label => 'Screen Size (vertical pixels)' %>
-  <%= f.input :primary_camera_mp, :label => 'Primary Camera Megapixels' %>
-  <%= f.input :secondary_camera_mp, :label => 'Secondary Camera Megapixels' %>
-
   
+    <%= f.association :device %>
+    <%= f.input :requested_date %>
+    <%= f.input :approve_date %>
+    <%= f.input :loan_date %>
+    <%= f.input :end_date %>
+    <%= f.input :return_date %>
+
+
   <div class="actions">
     <%= f.button :submit %>
   </div>
