@@ -2,18 +2,20 @@
 <h1>Devices</h1>
   <table class="table">
   <thead>
-    <th>Device</th>
-    <th>Created on:</th>
+    <th>Model</th>
+    <th>OS</th>
+    <th>IMEI</th>
     <th>&nbsp;</th>
   </thead>
   <% for device in @devices %>
     <tr>
-      <td><%= link_to device.IMEI, device_path(device) %></td>
-    <td><%= device.created_at.strftime("%B %d, %Y") %></td>
-    <td>
-      <%= link_to("Edit", edit_device_path(device))  %>&nbsp;
-      <%= link_to("Delete", device_path(device), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
-    </td>
+      <td><%= link_to device.model.name, device_path(device) %></td>
+      <td><%= device.os_version.number %> (<%= device.os_version.name %>)</td>
+      <td><%= device.IMEI %>
+      <td>
+        <%= link_to("Edit", edit_device_path(device))  %>&nbsp;
+        <%= link_to("Delete", device_path(device), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+      </td>
     </tr>
   <% end %>
 </table>
