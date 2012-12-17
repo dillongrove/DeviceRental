@@ -27,7 +27,7 @@
         </ul>
         <ul class="nav pull-right">
           <% if logged_in? %>
-            <li>Welcome, <%= link_to current_user.email, user_path(current_user) %></li>
+            <li>Welcome, <%= link_to current_user.email, user_path(current_user), :class => "inline_link" %></li>
             <li><%= link_to "Logout", logout_path %></li>
           <% else %>
             <li><%= link_to "Login", login_path %></li>
