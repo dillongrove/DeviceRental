@@ -9,6 +9,7 @@ gem 'validates_timeliness'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'bcrypt-ruby'
+gem 'cancan'
 
 group :production do
   gem 'mysql'
