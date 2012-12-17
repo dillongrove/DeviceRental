@@ -10,7 +10,7 @@ class Model < ActiveRecord::Base
   
   # Scopes ---------------------------------------------------------------------
   
-  
+  # Misc Constants -------------------------------------------------------------
   NETWORK_GENERATIONS = [:'3G', :'4G'] 
   
   # Validations ----------------------------------------------------------------
@@ -21,7 +21,7 @@ class Model < ActiveRecord::Base
   # TODO: minimum length for name, model_number?
   validates_numericality_of :screen_size_x_pixels, :screen_size_y_pixels
   validates_numericality_of :primary_camera_mp, :secondary_camera_mp, :allow_blank => true
-  validates_inclusion_of :network_generation, :in => NETWORK_GENERATIONS
+  validates_inclusion_of :network_generation, :in => %w[3G 4G]
   validate :brand_must_exist
   validate :os_type_must_exist
   

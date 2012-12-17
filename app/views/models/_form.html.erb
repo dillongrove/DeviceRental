@@ -12,8 +12,14 @@
   <% end %>
 
   <%= f.input :name %>
-  <%= f.input :number %>
+  <%= f.input :number, :label => 'Model No.' %>
   <%= f.association :brand, :include_blank => false %>
+  <%= f.input :network_generation, :collection => Model::NETWORK_GENERATIONS %>
+  <%= f.input :screen_size_inches, :label => 'Screen Size (inches)' %>
+  <%= f.input :screen_size_x_pixels, :label => 'Screen Size (horizontal pixels)' %>
+  <%= f.input :screen_size_y_pixels, :label => 'Screen Size (vertical pixels)' %>
+  <%= f.input :primary_camera_mp, :label => 'Primary Camera Megapixels' %>
+  <%= f.input :secondary_camera_mp, :label => 'Secondary Camera Megapixels' %>
 
   
   <div class="actions">
