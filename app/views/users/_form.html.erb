@@ -12,6 +12,7 @@
   <% end %>
     <%= f.input :email %>
     <%= f.input :andrew %>
+    <%= f.input :role, :collection => User::ROLES %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
   <div class="actions">
