@@ -1,4 +1,4 @@
-<%= simple_form_for(@model) do |f| %>
+<%= simple_form_for @model, :html => {:multipart => true} do |f| %>
   <% if @model.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@model.errors.count, "error") %> prohibited this model from being saved:</h2>
@@ -13,6 +13,7 @@
 
   <%= f.input :name %>
   <%= f.input :number, :label => 'Model No.' %>
+  <%= f.file_field :image, :label => 'Image' %>
   <%= f.association :brand, :include_blank => false %>
   <%= f.input :network_generation, :collection => Model::NETWORK_GENERATIONS %>
   <%= f.association :os_type, :include_blank => false %>

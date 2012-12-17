@@ -1,12 +1,15 @@
 class Model < ActiveRecord::Base
 
-  attr_accessible :brand_id, :id, :name, :network_generation, :number, :os_type_id, :primary_camera_mp, :screen_size_inches, :screen_size_x_pixels, :screen_size_y_pixels, :secondary_camera_mp
+  attr_accessible :image, :image_attributes, :brand_id, :id, :name, :network_generation, :number, :os_type_id, :primary_camera_mp, :screen_size_inches, :screen_size_x_pixels, :screen_size_y_pixels, :secondary_camera_mp
   
   # Relationships --------------------------------------------------------------
   has_many :model_features
   has_many :devices
   belongs_to :os_type
   belongs_to :brand
+
+  # Image Uploader -------------------------------------------------------------
+  mount_uploader :image, ImageUploader
   
   # Scopes ---------------------------------------------------------------------
   

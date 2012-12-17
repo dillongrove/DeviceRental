@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618041048) do
+ActiveRecord::Schema.define(:version => 20121217050300) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120618041048) do
     t.float    "secondary_camera_mp"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.string   "image"
   end
 
   create_table "os_types", :force => true do |t|
