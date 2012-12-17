@@ -58,7 +58,7 @@ class Rental < ActiveRecord::Base
   
   # end date must be after requested date
   validates_date :end_date,
-    :on_or_after => :requested_date,
+    :on_or_after => :created_at,
     :on_or_after_message => 'must be on or after the requested date'
   
   # approve_date is optional, must be after created date  
@@ -84,12 +84,11 @@ class Rental < ActiveRecord::Base
   # Methods --------------------------------------------------------------------
   
   # Current stage of the rental
-  #  :created   |  :approved    |      :loaned        |                            :returned
-  # created_at <= approve_date <= requested/loan_date <= loan/requested_date <= end/return_date <= end/return_date
+  #  :created | :approved | :loaned | :returned
   def stage
     return :returned  if (not self.return_date.nil?) && (self.return_date.to_date <= Date.current)
     return :loaned    if (not self.loan_date.nil?) && (self.loan_date.to_date <= Date.current)
-    return :approved  if (not self.approve_date.nil?) && (self.approvate_date.to_date <= Date.current)
+    return :approved  if (not self.approve_date.nil?) && (self.approve_date.to_date <= Date.current)
     return :created   if (not self.created_at.nil?)
     return :undefined # probably should never reach here
   end
