@@ -16,8 +16,8 @@
 @import "bootstrap";
 
 /*========== VARIABLES =======================================================*/
-$base_color: #019bc6;
-$footer_height: 60px;
+$base_color: #B31B1B;
+$footer_height: 140px;
 
 /*========== BASIC STYLES ====================================================*/
 body {
@@ -49,17 +49,26 @@ body {
 * {
   margin: 0;
 }
+
 html, body {
   height: 100%;
 }
+
 .wrapper {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -4em;
+  margin: 0 auto (-$footer_height);
 }
-.footer, .push {
-  height: 4em;
+
+footer, .push {
+  height: $footer_height;
+}
+
+/*========== FOOTER STYLES ===================================================*/
+
+footer {
+  background-color: #333;
 }
 
 

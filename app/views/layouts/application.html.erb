@@ -18,42 +18,24 @@
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
-  <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Home", home_path  %></li>
-              <li><%= link_to "Brands", brands_path  %></li>
-              <li><%= link_to "Models", models_path %></li>
-              <li><%= link_to "OS Types", os_types_path %></li>
-              <li><%= link_to "OS Versions", os_versions_path %></li>
-              <li><%= link_to "Devices", devices_path %></li>
-            </ul>
-          </div>
+  <body>
+    <%= render :partial => "partials/nav" %>
+
+    <div class="wrapper"><!-- wrapper used for sticker footer -->
+
+      <div class="container">
+        <div class="content">
+          <!-- page content injected here -->
+          <%= yield %>
         </div>
       </div>
+
+      <div class="push"></div><!-- push class for sticky footer -->
+      
     </div>
 
-    <div class="container">
-      <div class="content">
-        <%= yield %>
-      </div><!--/content-->
-
-      <hr class='soften'/>
-
-      <footer>
-        <p>&copy; CMU Mobile Apps Club 2012</p>
-      </footer>
-
-    </div> <!-- /container -->
+    <%= render :partial => "partials/footer" %>
 
     <!-- Javascripts
     ================================================== -->
