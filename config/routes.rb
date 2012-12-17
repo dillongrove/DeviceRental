@@ -46,6 +46,14 @@ RentalApp::Application.routes.draw do
   #     resources :products
   #   end
 
+  # Authentication routes
+  match 'user/edit' => 'users#edit', :as => :edit_user
+  match 'signup' => 'users#new', :as => :signup
+  match 'logout' => 'sessions#destroy', :as => :logout
+  match 'login' => 'sessions#new', :as => :login
+  resources :sessions
+  resources :users
+
   # Generated model routes
   resources :brands
   resources :devices
@@ -55,7 +63,6 @@ RentalApp::Application.routes.draw do
   resources :os_types
   resources :os_versions
   resources :rentals
-  resources :users
 
   # homepage route
   match '/' => "home#index", :as => :home
