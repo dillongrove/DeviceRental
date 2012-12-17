@@ -8,6 +8,7 @@ gem 'valid_email'
 gem 'validates_timeliness'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'bcrypt-ruby'
 
 group :production do
   gem 'mysql'

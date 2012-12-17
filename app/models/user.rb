@@ -8,7 +8,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  attr_accessible :id, :andrew, :email, :role
+  attr_accessible :id, :andrew, :email, :role, :password, :password_confirmation
   
   # Relationships --------------------------------------------------------------
   has_many :rentals, :dependent => :destroy
