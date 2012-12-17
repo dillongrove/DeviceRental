@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Successfully created user."
-      redirect_to @user
+      session[:user_id] = @user.id
+      flash[:notice] = "Thank you for signing up!"
+      redirect_to home_path
     else
       render :action => 'new'
     end
