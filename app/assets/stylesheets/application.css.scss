@@ -31,7 +31,8 @@
 
 /*========== VARIABLES =======================================================*/
 $base_color: #00337f;
-$red: #c90000;
+$red: #B31B1B;
+$green: #168F16;
 
 $footer_height: 65px;
 
@@ -117,6 +118,51 @@ footer {
   padding: 25px;
   @include border-box;
 }
+
+/*========== BUTTONS =========================================================*/
+
+.button {
+  cursor: pointer;
+
+  color: #fff;
+
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 12px;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+
+  -webkit-box-shadow: 2px 2px 0px $green;
+  -moz-box-shadow: 2px 2px 0px $green;
+  box-shadow: 2px 2px 0px $green;
+
+  background-color: lighten($green, 6%);
+
+  -webkit-transition: none;
+}
+
+.button:hover {
+  background-color: lighten($green, 12%); 
+}
+
+.button:active {
+  -webkit-box-shadow: 1px 1px 0px $green;
+  -moz-box-shadow: 1px 1px 0px $green;
+  box-shadow: 1px 1px 0px $green;
+
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+
 
 
 
