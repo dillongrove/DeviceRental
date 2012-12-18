@@ -16,7 +16,11 @@
       <h1>Device Rental Program</h1>
       <br>
       <br>
-      <%= link_to "Rent a Device", models_path, :class => "button button-blue button-large" %>
+      <% if logged_in? %>
+        <%= link_to "Rent a Device", models_path, :class => "button button-blue button-large" %>
+      <% else %>
+        <%= link_to "Rent a Device", login_path, :class => "button button-blue button-large" %>
+      <% end %>
   </div>
 
 
