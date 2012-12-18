@@ -66,127 +66,132 @@
 #models {
     padding-top: 20px;
     background-repeat: no-repeat;
+
+    /* need to specify this margin inside #models so it will be specific enough to override skeleton */
+    .model {
+      margin-bottom: 20px;
+    }
 }
 
-#models .model {
-    background-color: #eeeeee;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    @include border-box;
-    box-shadow: 0px 0px 10px #ccc;
+.model {
+background-color: #eeeeee;
+margin-bottom: 20px;
+padding: 10px;
+border: 1px solid #ccc;
+@include border-box;
+box-shadow: 0px 0px 10px #ccc;
+position: relative;
+
+.model_inner {
     position: relative;
+    height: 280px;
+    margin-bottom: 6px;
+    text-align: center;
     
-    .model_inner {
-        position: relative;
-        height: 280px;
-        margin-bottom: 6px;
+    img {
+        max-width: 100%; /* images will never be larger than their container */
+    }
+}
+
+.model_inner:before {
+    content: "";
+    @include phone-shadow;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    display: block;
+    /* http://stackoverflow.com/questions/9220202/shouldnt-text-align-center-applied-to-an-absolutely-positioned-element-do */
+}
+
+/* allows us to position it relative to the bottom of it's container using absolute positioning, but
+ * also to center the image horizontally */ 
+.image_wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 36px;
+}
+
+.make_and_model {
+    float: left;
+
+    span {
+        color: #aaaaaa;
+        font-size: 14px;
+        @include text-shadow(0px, 1px, #ffffff);
+        @include oswald;
+        display: inline-block;
+    }
+    
+    h3 {
+        color: #000000;
+        font-size: 18px;
+        @include text-shadow(0px, 1px, #ffffff);
+        @include oswald;
+        line-height: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        /* have to disable bootstraps built in text rendering because it causes unwarranted line breaks */
+        text-rendering: inherit;
+    }
+}
+
+.availability {
+    float: right;
+    font-family: "Verdana", sans-serif;
+    font-weight: bold;
+    border-left: 1px dotted #ccc;
+    padding-left: 8px;
+    line-height: 14px;
+    position: absolute;
+    right: 10px;
+
+    div {
+        border-radius: 3px;
+        padding: 5px 4px;
+        font-size: 10px;
+        @include inset-shadow(0px, 0px, 4px, #666);
+        text-transform: none;
+        color: #fff;
+        font-size: 12px;
         text-align: center;
-        
-        img {
-            max-width: 100%; /* images will never be larger than their container */
-        }
-    }
-    
-    .model_inner:before {
-        content: "";
-        @include phone-shadow;
-        height: 60px;
-        width: 100%;
-        position: absolute;
-        bottom: 10px;
-        display: block;
-        /* http://stackoverflow.com/questions/9220202/shouldnt-text-align-center-applied-to-an-absolutely-positioned-element-do */
     }
 
-    /* allows us to position it relative to the bottom of it's container using absolute positioning, but
-     * also to center the image horizontally */ 
-    .image_wrapper {
-        position: absolute;
-        width: 100%;
-        bottom: 36px;
-    }
-    
-    .make_and_model {
-        float: left;
-
-        span {
-            color: #aaaaaa;
-            font-size: 14px;
-            @include text-shadow(0px, 1px, #ffffff);
-            @include oswald;
-            display: inline-block;
-        }
-        
-        h3 {
-            color: #000000;
-            font-size: 18px;
-            @include text-shadow(0px, 1px, #ffffff);
-            @include oswald;
-            line-height: 18px;
-            margin-top: 0;
-            margin-bottom: 0;
-
-            /* have to disable bootstraps built in text rendering because it causes unwarranted line breaks */
-            text-rendering: inherit;
-        }
+    span {
+        font-size: 9px;
     }
 
-    .availability {
-        float: right;
-        font-family: "Verdana", sans-serif;
-        font-weight: bold;
-        border-left: 1px dotted #ccc;
-        padding-left: 8px;
-        line-height: 14px;
-        position: absolute;
-        right: 10px;
+}
 
-        div {
-            border-radius: 3px;
-            padding: 5px 4px;
-            font-size: 10px;
-            @include inset-shadow(0px, 0px, 4px, #666);
-            text-transform: none;
-            color: #fff;
-            font-size: 12px;
-            text-align: center;
-        }
+.available div {
+    background-color: #00cc00;
+}
 
-        span {
-            font-size: 9px;
-        }
+.unavailable div {
+    background-color: #a60000;
+}
 
-    }
+.os_type {
+    background-image: url(image-path("os_type_icons.png"));
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
 
-    .available div {
-        background-color: #00cc00;
-    }
+.os_android {
+    background-position: 0px 0px;
+}
 
-    .unavailable div {
-        background-color: #a60000;
-    }
+.os_ios {
+    background-position: -30px 0px;
+}
 
-    .os_type {
-        background-image: url(image-path("os_type_icons.png"));
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-    }
-
-    .os_android {
-        background-position: 0px 0px;
-    }
-
-    .os_ios {
-        background-position: -30px 0px;
-    }
-
-    .os_wp7 {
-        background-position: -60px 0px;
-    }
+.os_wp7 {
+    background-position: -60px 0px;
+}
     
 }
 

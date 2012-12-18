@@ -1,24 +1,36 @@
-<h1><%= @model.name %></h1>
-<%= image_tag @model.image_url %>
+<div class="eight columns model">
+  <div class="model_inner">
+      <div class="image_wrapper"><%= image_tag @model.image_url %></div>
+      <% if @model.os_type.name == "Android" %>
+        <div class="os_type os_android"></div>
+      <% elsif @model.os_type.name == "iOS" %>
+        <div class="os_type os_ios"></div>
+      <% end %>
+  </div>
+  <div class="make_and_model">
+      <span><%= @model.brand.name %></span>
+      <h3><%= @model.name %></h3>
+  </div>
+</div>
 
-<h1>Devices</h1>
-<table class="table">
-  <thead>
-    <th>Model</th>
-    <th>OS</th>
-    <th>IMEI</th>
-    <th>&nbsp;</th>
-  </thead>
-  <% for device in @devices %>
-    <tr>
-      <td><%= link_to device.model.name, device_path(device) %></td>
-      <td><%= device.os_version.number %> (<%= device.os_version.name %>)</td>
-      <td><%= device.IMEI %>
-      <td>
-        <%= link_to("Edit", edit_device_path(device))  %>&nbsp;
-        <%= link_to("Delete", device_path(device), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
-        <%= link_to 'Create Rental', new_rental_path(:device => device.id), :class => 'btn btn-small btn-primary' %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="eight columns">
+  <h2>Devices</h2>
+  <table class="table">
+    <thead>
+      <th>Device ID</th>
+      <th>Model</th>
+      <th>OS Version</th>
+      <th>&nbsp;</th>
+    </thead>
+    <% for device in @devices %>
+      <tr>
+        <td><%= device.id %></td>
+        <td><%= link_to device.model.name, device_path(device) %></td>
+        <td><%= device.os_version.number %> (<%= device.os_version.name %>)</td>
+        <td>
+          <%= link_to 'Rent this Device', new_rental_path(:device => device.id), :class => 'btn btn-small btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
