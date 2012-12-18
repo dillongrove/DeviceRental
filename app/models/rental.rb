@@ -95,7 +95,7 @@ class Rental < ActiveRecord::Base
   alias :old_to_s :to_s
   # string representation of this rental
   def to_s
-    "#{self.user} w. #{self.device}"
+    "#{self.user} - #{self.device.model.name}"
   end
   
   private

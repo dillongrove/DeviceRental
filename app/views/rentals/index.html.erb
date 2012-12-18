@@ -13,7 +13,6 @@
       <td><%= link_to rental, rental_path(rental) %></td>
       <td><%= rental.stage %></td>
       <td><%= rental.end_date.strftime("%B %d, %Y") %>
-      <td><%= rental.device.IMEI %></td>
       <td>
         <%= link_to("Edit", edit_rental_path(rental))  %>&nbsp;
         <%= link_to("Delete", rental_path(rental), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
