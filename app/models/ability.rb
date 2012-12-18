@@ -10,6 +10,7 @@ class Ability
     else
       can :read, Model
       can :create, Rental
+      can :read, Device
 
       can :create, User
       can :delete, User
