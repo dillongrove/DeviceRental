@@ -2,9 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Mixins */
 @mixin border-box {
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
@@ -13,6 +12,14 @@
     -moz-box-shadow:    inset $x $y $blur $color;
     -webkit-box-shadow: inset $x $y $blur $color;
     box-shadow:         inset $x $y $blur $color;
+}
+
+@mixin text-shadow($h: $horizontal_offset, $v: $vertical_offset, $c: $shadow_color) {
+    $value: $h $v $c;
+    -moz-text-shadow: $value;
+    -webkit-text-shadow: $value;
+    -o-text-shadow: $value;
+    text-shadow: $value;
 }
 
 @mixin model-gradient {
@@ -30,14 +37,6 @@
         color-stop(0.3, rgb(224,224,224)),
         color-stop(1, rgb(234,234,234))
     );
-}
-
-@mixin text-shadow($h: $horizontal_offset, $v: $vertical_offset, $c: $shadow_color) {
-    $value: $h $v $c;
-    -moz-text-shadow: $value;
-    -webkit-text-shadow: $value;
-    -o-text-shadow: $value;
-    text-shadow: $value;
 }
 
 @mixin oswald {
