@@ -1,6 +1,6 @@
 <% if @current_user.role? :admin %>
   <%= render :partial => 'models_table' %>
+  <%= link_to "Create Model", new_model_path, :class => "button button-blue"  %>
 <% else %>
   <%= render :partial => 'models_grid' %>
 <% end %>
-<%= link_to "Create Model", new_model_path, :class => "button button-blue"  %>
