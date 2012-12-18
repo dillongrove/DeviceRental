@@ -1,3 +1,11 @@
 <div class="hero-unit">
-  <h1>Home</h1>
+  <% if logged_in? %>
+    <% if current_user.role? :admin %>
+      <%= render :partial => "admin_home" %>
+    <% elsif current_user.role? :regular %>
+      <%= render :partial => "regular_home" %>
+    <% end %>
+  <% else %>
+    <%= render :partial => "public_home" %>
+  <% end %>
 </div>
