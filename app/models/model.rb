@@ -1,6 +1,6 @@
 class Model < ActiveRecord::Base
 
-  attr_accessible :image, :image_attributes, :brand_id, :id, :name, :network_generation, :number, :os_type_id, :primary_camera_mp, :screen_size_inches, :screen_size_x_pixels, :screen_size_y_pixels, :secondary_camera_mp
+  attr_accessible :image, :image_attributes, :brand_id, :id, :name, :network_generation, :number, :os_type_id, :primary_camera_mp, :screen_size_inches, :screen_size_x_pixels, :screen_size_y_pixels, :secondary_camera_mp, :form_factor
   
   # Relationships --------------------------------------------------------------
   has_many :model_features
@@ -15,9 +15,10 @@ class Model < ActiveRecord::Base
   
   # Misc Constants -------------------------------------------------------------
   NETWORK_GENERATIONS = [:'3G', :'4G'] 
+  FORM_FACTORS = [['Handset', 'handset'], ['Tablet', 'tablet']]
   
   # Validations ----------------------------------------------------------------
-  validates_presence_of :brand_id, :name, :network_generation, :number, :os_type_id, :screen_size_x_pixels, :screen_size_y_pixels
+  validates_presence_of :brand_id, :name, :network_generation, :number, :os_type_id, :screen_size_x_pixels, :screen_size_y_pixels, :form_factor
   # if primary/secondary camera details missing, that means no primary/secondary camera
   # IDEA: maybe we don't even need these details - just google on demand!!!!!
   
@@ -25,6 +26,7 @@ class Model < ActiveRecord::Base
   validates_numericality_of :screen_size_x_pixels, :screen_size_y_pixels
   validates_numericality_of :primary_camera_mp, :secondary_camera_mp, :allow_blank => true
   validates_inclusion_of :network_generation, :in => %w[3G 4G]
+  validates_inclusion_of :form_factor, :in => FORM_FACTORS.map { |a,b| b }, :message => "not recognized"
   validate :brand_must_exist
   validate :os_type_must_exist
   

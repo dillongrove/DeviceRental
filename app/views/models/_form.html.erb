@@ -13,6 +13,7 @@
 
   <%= f.input :name %>
   <%= f.input :number, :label => 'Model No.' %>
+  <%= f.input :form_factor, :collection => Model::FORM_FACTORS %>
   <%= f.file_field :image, :label => 'Image' %>
   <%= f.association :brand, :include_blank => false %>
   <%= f.input :network_generation, :collection => Model::NETWORK_GENERATIONS %>
