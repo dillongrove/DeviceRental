@@ -23,7 +23,11 @@
   </head>
 
   <body>
-    <%= render :partial => "partials/nav" %>
+    <% if logged_in? %>
+      <%= render :partial => "partials/nav" %>
+    <% else %>
+      <%= render :partial => "partials/minimal_nav" %>
+    <% end %>
 
     <div class="wrapper"><!-- wrapper used for sticker footer -->
 
