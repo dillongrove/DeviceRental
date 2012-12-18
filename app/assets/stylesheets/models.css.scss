@@ -1,3 +1,192 @@
 // Place all the styles related to the models controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Mixins */
+@mixin border-box {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@mixin inset-shadow($x, $y, $blur, $color) {
+    -moz-box-shadow:    inset $x $y $blur $color;
+    -webkit-box-shadow: inset $x $y $blur $color;
+    box-shadow:         inset $x $y $blur $color;
+}
+
+@mixin model-gradient {
+    background-image: linear-gradient(bottom, rgb(186,186,186) 0%, rgb(224,224,224) 30%, rgb(234,234,234) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(186,186,186) 0%, rgb(224,224,224) 30%, rgb(234,234,234) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(186,186,186) 0%, rgb(224,224,224) 30%, rgb(234,234,234) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(186,186,186) 0%, rgb(224,224,224) 30%, rgb(234,234,234) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(186,186,186) 0%, rgb(224,224,224) 30%, rgb(234,234,234) 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(186,186,186)),
+        color-stop(0.3, rgb(224,224,224)),
+        color-stop(1, rgb(234,234,234))
+    );
+}
+
+@mixin text-shadow($h: $horizontal_offset, $v: $vertical_offset, $c: $shadow_color) {
+    $value: $h $v $c;
+    -moz-text-shadow: $value;
+    -webkit-text-shadow: $value;
+    -o-text-shadow: $value;
+    text-shadow: $value;
+}
+
+@mixin oswald {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+
+@mixin phone-shadow {
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 60%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.5)), color-stop(60%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 60%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 60%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 60%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 60%); /* W3C */
+}
+
+/* Styles */
+* {
+    background-repeat: no-repeat;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition:    all 0.1s ease;
+    -ms-transition:     all 0.1s ease;
+    -o-transition:      all 0.1s ease;    
+}
+
+#models {
+    padding-top: 20px;
+    background-repeat: no-repeat;
+}
+
+#models .model {
+    background-color: #eeeeee;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    @include border-box;
+    box-shadow: 0px 0px 10px #ccc;
+    position: relative;
+    
+    .model_inner {
+        position: relative;
+        height: 280px;
+        margin-bottom: 6px;
+        text-align: center;
+        
+        img {
+            max-width: 100%; /* images will never be larger than their container */
+        }
+    }
+    
+    .model_inner:before {
+        content: "";
+        @include phone-shadow;
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+        display: block;
+        /* http://stackoverflow.com/questions/9220202/shouldnt-text-align-center-applied-to-an-absolutely-positioned-element-do */
+    }
+
+    /* allows us to position it relative to the bottom of it's container using absolute positioning, but
+     * also to center the image horizontally */ 
+    .image_wrapper {
+        position: absolute;
+        width: 100%;
+        bottom: 36px;
+    }
+    
+    .make_and_model {
+        float: left;
+
+        span {
+            color: #aaaaaa;
+            font-size: 14px;
+            @include text-shadow(0px, 1px, #ffffff);
+            @include oswald;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        
+        h3 {
+            @include text-shadow(0px, 1px, #ffffff);
+        }
+    }
+
+    .availability {
+        float: right;
+        font-family: "Verdana", sans-serif;
+        font-weight: bold;
+        border-left: 1px dotted #ccc;
+        padding-left: 8px;
+        line-height: 14px;
+        position: absolute;
+        right: 10px;
+
+        div {
+            border-radius: 3px;
+            padding: 5px 4px;
+            font-size: 10px;
+            @include inset-shadow(0px, 0px, 4px, #666);
+            text-transform: none;
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        span {
+            font-size: 9px;
+        }
+
+    }
+
+    .available div {
+        background-color: #00cc00;
+    }
+
+    .unavailable div {
+        background-color: #a60000;
+    }
+
+    .os_type {
+        background-image: url("../images/os_type_icons.png");
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    #os_ios {
+        background-position: -30px 0px;
+    }
+
+    #os_wp7 {
+        background-position: -60px 0px;
+    }
+    
+}
+
+#models .model:hover {
+    cursor: pointer;
+    background-color: #F6F6F6;
+    box-shadow: 0px 4px 14px #666;
+    
+}
+
+#models .model:active {
+    position: relative;
+    top: 2px;
+    box-shadow: 0px 2px 6px #666;
+}
