@@ -4,6 +4,7 @@ class RentalsController < ApplicationController
   def new  
     @rental = Rental.new  
     @device =  Device.find(params[:device])
+    @rental.user = @current_user
   end
 
   def create
