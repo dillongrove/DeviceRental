@@ -2,8 +2,10 @@ class RentalsController < ApplicationController
   load_and_authorize_resource
 
   def new  
-    @rental = Rental.new  
-    @device =  Device.find(params[:device])
+    @rental = Rental.new
+    if !params[:device].nil?
+      @device =  Device.find(params[:device])
+    end
   end
 
   def create
