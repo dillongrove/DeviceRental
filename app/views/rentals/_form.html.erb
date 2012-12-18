@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+    <% if @current_user.role? :admin %>
 
     <%= f.association :device, :label_method => lambda { |device| "#{device.model.name} (#{device.IMEI})" }, :selected => params[:device] %>
     <%= f.input :loan_date, :as => :date, :start_year => Date.today.year,
@@ -18,9 +19,6 @@
     <%= f.input :end_date, :as => :date, :start_year => Date.today.year,
                                 :end_year => Date.today.year, :order => [:month, :day, :year],
                                 :include_blank => true, :default => nil %>
-
-    <% if @current_user.role? :admin %>
-
       <%= f.association :user, :label_method => lambda { |user| "#{user.andrew}" } %>
       <%= f.input :approve_date, :as => :date, :start_year => Date.today.year,
                                 :end_year => Date.today.year, :order => [:month, :day, :year],
@@ -28,6 +26,16 @@
       <%= f.input :return_date, :as => :date, :start_year => Date.today.year,
                                 :end_year => Date.today.year, :order => [:month, :day, :year],
                                 :include_blank => true, :default => nil %>
+
+    <% elsif @current_user.role? :regular %>
+
+        <%= f.association :device, :label_method => lambda { |device| "#{device.model.name} (#{device.IMEI})" }, :selected => params[:device] %>
+        <%= f.input :loan_date, :as => :date, :start_year => Date.today.year,
+                                :end_year => Date.today.year, :order => [:month, :day, :year],
+                                :include_blank => true, :default => nil, :label => "When would you like to start renting the device?" %>
+        <%= f.input :end_date, :as => :date, :start_year => Date.today.year,
+                                :end_year => Date.today.year, :order => [:month, :day, :year],
+                                :include_blank => true, :default => nil, :label => "When would you like to start renting the device?" %>
     <% end %>
   <div class="actions">
     <%= f.button :submit %>
