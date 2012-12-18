@@ -3,7 +3,7 @@
   <table class="table">
   <thead>
     <th>Model</th>
-    <th>Number Devices</th>
+    <th>Number of Devices</th>
     <th>&nbsp;</th>
   </thead>
   <% for model in @models %>
@@ -11,8 +11,10 @@
       <td><%= link_to model.name, model_path(model) %></td>
     <td><%= model.devices.count %></td>
     <td>
-      <%= link_to("Edit", edit_model_path(model))  %>&nbsp;
-      <%= link_to("Delete", model_path(model), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+      <% if @current_user.role? :admin %>
+        <%= link_to("Edit", edit_model_path(model))  %>&nbsp;
+        <%= link_to("Delete", model_path(model), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+      <% end %>
     </td>
     </tr>
   <% end %>
