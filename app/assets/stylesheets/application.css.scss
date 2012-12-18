@@ -184,7 +184,6 @@ footer {
 }
 
 /* Green Buttons */
-
 .button-green, a.button-green {
   -webkit-box-shadow: 2px 2px 0px $green;
   -moz-box-shadow: 2px 2px 0px $green;
@@ -207,6 +206,29 @@ footer {
   left: 1px;
 }
 
+/* Blue Buttons */
+.button-blue, a.button-blue {
+  -webkit-box-shadow: 2px 2px 0px $blue;
+  -moz-box-shadow: 2px 2px 0px $blue;
+  box-shadow: 2px 2px 0px $blue;
+
+  background-color: lighten($blue, 6%);
+}
+
+.button-blue:hover, a.button-blue:hover {
+  background-color: lighten($blue, 12%); 
+}
+
+.button-blue:active, a.button-blue:active {
+  -webkit-box-shadow: 1px 1px 0px $blue;
+  -moz-box-shadow: 1px 1px 0px $blue;
+  box-shadow: 1px 1px 0px $blue;
+
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
 /* Small Buttons */
 .button-small, a.button-small {
   padding: 3px 7px;
@@ -219,6 +241,17 @@ footer {
 
 }
 
+/* Large Buttons */
+.button-large, a.button-large {
+  padding: 12px 18px;
+
+  font-size: 18px;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+}
 
 
 
