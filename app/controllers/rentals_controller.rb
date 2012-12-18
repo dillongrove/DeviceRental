@@ -4,16 +4,26 @@ class RentalsController < ApplicationController
   def new  
     @rental = Rental.new  
     @device =  Device.find(params[:device])
-    @rental.user = @current_user
   end
 
   def create
     @rental = Rental.new(params[:rental])
+
+    if current_user.role? :admin
+      @rental.user_id = params[:rental][:user_id]
+    else
+      @rental.user_id = current_user.id
+    end
+
     if @rental.save
       flash[:notice] = "Successfully created rental."
-      redirect_to @rental
+      if current_user.role? :admin
+        return redirect_to home_path
+      else 
+        return redirect_to models_path
+      end
     else
-      render :action => 'new'
+      return render :action => 'new'
     end
   end
 

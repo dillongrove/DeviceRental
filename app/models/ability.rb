@@ -9,6 +9,7 @@ class Ability
         can :manage, :all
     else
       can :read, Model
+      can :create, Rental
 
       can :create, User
       can :delete, User
