@@ -33,7 +33,7 @@
 $base_color: #6754BD;
 $red: #B31B1B;
 $green: #168F16;
-$gray: #999999;
+$gray: #666666;
 
 $footer_height: 65px;
 
@@ -132,7 +132,7 @@ footer, .push {
 
 footer {
   background-color: #333;
-  color: #999;
+  color: #444;
   padding: 25px;
   @include border-box;
 }
@@ -164,13 +164,13 @@ footer {
   -moz-box-shadow: 2px 2px 0px $gray;
   box-shadow: 2px 2px 0px $gray;
 
-  background-color: lighten($gray, 6%);
+  background-color: lighten($gray, 25%);
 
   -webkit-transition: none;
 }
 
 .button:hover, a.button:hover {
-  background-color: lighten($gray, 12%); 
+  background-color: lighten($gray, 35%); 
 }
 
 .button:active, a.button:active {
