@@ -29,6 +29,10 @@ class Model < ActiveRecord::Base
   validates_inclusion_of :form_factor, :in => FORM_FACTORS.map { |a,b| b }, :message => "not recognized"
   validate :brand_must_exist
   validate :os_type_must_exist
+
+  def form_factor?(in_form_factor)
+    return form_factor.downcase.to_sym == in_form_factor
+  end
   
   private
   
