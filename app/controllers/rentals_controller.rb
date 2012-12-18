@@ -20,7 +20,7 @@ class RentalsController < ApplicationController
       if current_user.role? :admin
         return redirect_to home_path
       else 
-        return redirect_to models_path
+        return redirect_to user_path(current_user)
       end
     else
       return render :action => 'new'

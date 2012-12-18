@@ -8,16 +8,11 @@
     <thead>
       <th>Device Rented</th>
       <th>Due Back</th>
-      <th>&nbsp;</th>
     </thead>
     <% for rental in @rentals %>
       <tr>
         <td><%= link_to rental.device.IMEI, device_path(rental.device) %></td>
         <td><%= rental.end_date.strftime("%B %d, %Y") %>
-        <td>
-          <%= link_to("Edit", edit_rental_path(rental))  %>&nbsp;
-          <%= link_to("Delete", rental_path(rental), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
-        </td>
       </tr>
     <% end %>
   </table>
