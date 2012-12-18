@@ -33,6 +33,7 @@
 $base_color: #6754BD;
 $red: #B31B1B;
 $green: #168F16;
+$gray: #999999;
 
 $footer_height: 65px;
 
@@ -138,6 +139,7 @@ footer {
 
 /*========== BUTTONS =========================================================*/
 
+/* Base Button Styles */
 .button, a.button {
   cursor: pointer;
   text-decoration: none;
@@ -158,20 +160,44 @@ footer {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 
-  -webkit-box-shadow: 2px 2px 0px $green;
-  -moz-box-shadow: 2px 2px 0px $green;
-  box-shadow: 2px 2px 0px $green;
+  -webkit-box-shadow: 2px 2px 0px $gray;
+  -moz-box-shadow: 2px 2px 0px $gray;
+  box-shadow: 2px 2px 0px $gray;
 
-  background-color: lighten($green, 6%);
+  background-color: lighten($gray, 6%);
 
   -webkit-transition: none;
 }
 
 .button:hover, a.button:hover {
-  background-color: lighten($green, 12%); 
+  background-color: lighten($gray, 12%); 
 }
 
 .button:active, a.button:active {
+  -webkit-box-shadow: 1px 1px 0px $gray;
+  -moz-box-shadow: 1px 1px 0px $gray;
+  box-shadow: 1px 1px 0px $gray;
+
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+/* Green Buttons */
+
+.button-green, a.button-green {
+  -webkit-box-shadow: 2px 2px 0px $green;
+  -moz-box-shadow: 2px 2px 0px $green;
+  box-shadow: 2px 2px 0px $green;
+
+  background-color: lighten($green, 6%);
+}
+
+.button-green:hover, a.button-green:hover {
+  background-color: lighten($green, 12%); 
+}
+
+.button-green:active, a.button-green:active {
   -webkit-box-shadow: 1px 1px 0px $green;
   -moz-box-shadow: 1px 1px 0px $green;
   box-shadow: 1px 1px 0px $green;
@@ -181,6 +207,7 @@ footer {
   left: 1px;
 }
 
+/* Small Buttons */
 .button-small, a.button-small {
   padding: 3px 7px;
 
