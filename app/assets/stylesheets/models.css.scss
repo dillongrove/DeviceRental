@@ -116,11 +116,19 @@
             @include text-shadow(0px, 1px, #ffffff);
             @include oswald;
             display: inline-block;
-            margin-bottom: 4px;
         }
         
         h3 {
+            color: #000000;
+            font-size: 18px;
             @include text-shadow(0px, 1px, #ffffff);
+            @include oswald;
+            line-height: 18px;
+            margin-top: 0;
+            margin-bottom: 0;
+
+            /* have to disable bootstraps built in text rendering because it causes unwarranted line breaks */
+            text-rendering: inherit;
         }
     }
 
