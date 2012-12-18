@@ -10,7 +10,11 @@
       <% end %>
         <div class="model_inner">
             <div class="image_wrapper"><%= image_tag model.image_url %></div>
-            <div class="os_type" id="os_android"></div>
+            <% if model.os_type.name == "Android" %>
+              <div class="os_type os_android"></div>
+            <% elsif model.os_type.name == "iOS" %>
+              <div class="os_type os_ios"></div>
+            <% end %>
         </div>
         <div class="make_and_model">
             <span><%= model.brand.name %></span>

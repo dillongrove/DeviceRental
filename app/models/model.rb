@@ -33,6 +33,10 @@ class Model < ActiveRecord::Base
   def form_factor?(in_form_factor)
     return form_factor.downcase.to_sym == in_form_factor
   end
+
+  def os?(os)
+    return os_type = os
+  end
   
   private
   
