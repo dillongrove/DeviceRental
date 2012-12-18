@@ -28,7 +28,7 @@
         <td><%= link_to device.model.name, device_path(device) %></td>
         <td><%= device.os_version.number %> (<%= device.os_version.name %>)</td>
         <td>
-          <%= link_to 'Rent this Device', new_rental_path(:device => device.id), :class => 'btn btn-small btn-primary' %>
+          <%= link_to 'Rent this device', new_rental_path(:device => device.id), :class => 'button button-small' %>
         </td>
       </tr>
     <% end %>

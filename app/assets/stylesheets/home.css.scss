@@ -1,3 +1,11 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*========== HOMEPAGE COLOR SPLASH ============================================*/
+#home_top_splash {
+  height: 300px;
+  background-image: url(image-path("classy_fabric_@2X.png"));
+  background-repeat: repeat;
+  border-bottom: 2px solid white;
+}

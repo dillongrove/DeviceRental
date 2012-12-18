@@ -1,12 +1,6 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <div class="container">
-        <ul class="nav pull-right">
-          <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Sign up", signup_path %></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="minimal_nav">
+  <ul class="pull-right">
+    <li><%= link_to "Login", login_path, :class => "button" %></li>
+    <li><%= link_to "Sign up", signup_path, :class => "button" %></li>
+  </ul>
 </div>
